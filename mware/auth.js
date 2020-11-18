@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const secretkey = require('../secret.key')
 module.exports = (req, res, next) => {
-    if (req.url.startsWith('/students')) {
+    if (req.url.startsWith('/students') || req.url.startsWith('/subjects') ) {
         const auth = req.headers['authorization'];
         if (!auth) {
             res.status(401);
@@ -30,3 +30,4 @@ module.exports = (req, res, next) => {
         next();
     }
 }
+
